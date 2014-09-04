@@ -1,7 +1,7 @@
 #__name  private var  cannot directly manipulate
 #__name__  not private var but special var
 
-'''print 200
+print 200
 with open('/home/icefrog/io','w') as f:
 	f.write('hello world!')
 	f.write(' making love out of nothing at all')
@@ -43,16 +43,25 @@ if isinstance(bart,Colleager):
 else:
 	print 'flase'
 print len('abc')
-print 'abc'.__len__()'''
+print 'abc'.__len__()
 
 
 class Student(object):
 	"""docstring for Stude"""
-	__slots__ = ('name', 'score', 'age')
+	__slots__ = ('name', 'score')
 
 bart = Student()
 bart.name = 'bart simpson'
 bart.score = 190
 print '%s: %s' % (bart.name, bart.score)
-bart.age = 19
-print bart.age
+
+class GraduStudent(Student):
+	#pass
+	__slots__ = ('sex', 'height', 'weight')
+
+alan = GraduStudent()
+alan.name = 'alan harper'
+alan.score = 39
+alan.sex = 'male'
+
+print '%s %s %s' % (alan.name, alan.score, alan.sex)
