@@ -1,7 +1,7 @@
 #__name  private var  cannot directly manipulate
 #__name__  not private var but special var
 
-print 200
+'''print 200
 with open('/home/icefrog/io','w') as f:
 	f.write('hello world!')
 	f.write(' making love out of nothing at all')
@@ -65,3 +65,73 @@ alan.score = 39
 alan.sex = 'male'
 
 print '%s %s %s' % (alan.name, alan.score, alan.sex)
+
+'''
+'''
+class Student(object):
+
+	@property 
+	def score(self):
+		return self._score
+	
+	@score.setter
+	def score(self,score):
+		if not isinstance(score, int):
+			raise ValueError('score must be an integer!')
+		if score < 0 or score > 100:
+			raise ValueError('score must be between 0 ~ 100!')
+		self._score = score
+
+bart = Student()
+bart.score = 10
+bart.name = 'bart simpson'
+print bart.name
+print bart.score
+'''
+# try exercise
+'''
+try:
+	print 'try...'
+	r = 10 / 0
+	print 'result :', r 
+except ValueError,e:
+	print e
+except ZeroDivisionError, e:
+	print 'ZeroDivisionError:',e
+except 
+finally:
+	print 'finally...'
+print 'end'
+'''
+'''
+#err.py
+import logging  # logging can record error 
+#message and make the program continue to run
+ 
+def foo(s):
+	return 10 / int(s)
+
+def bar(s):
+	return foo(s) * 2
+
+def main():
+
+	try:
+		bar('0')
+	except StandardError, e:
+		logging.exception(e)
+	finally:
+		pass
+	
+
+main()
+print 'END'
+'''
+
+def main():
+	try:
+		10 / 0
+	except ZeroDivisionError:
+		raise 
+
+main()
